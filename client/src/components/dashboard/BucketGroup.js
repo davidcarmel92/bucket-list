@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BucketItem from './BucketItem'
 
@@ -13,14 +12,8 @@ class BucketGroup extends Component {
 
   render() {
 
-    const { pins, title, id, onChangePin, onDeletePin, profile } = this.props;
+    const { pins, title, id, onChangePin, onDeletePin } = this.props;
     const { showAll } = this.state;
-
-    let profileId;
-
-    if(profile.profile) {
-      profileId = profile.profile._id;
-    }
 
     const list = pins.map(pin =>
       <BucketItem

@@ -24,7 +24,7 @@ class EditComment extends Component {
     e.preventDefault();
 
     const { user } = this.props.auth;
-    const { pinId, commentId } = this.props;
+    const { commentId } = this.props;
 
     const commentData = {
       text: this.state.text,

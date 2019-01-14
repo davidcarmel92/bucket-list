@@ -69,7 +69,6 @@ class GalleryItem extends Component {
 GalleryItem.propTypes = {
   addPinFromGallery: PropTypes.func.isRequired,
   getPinsByUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 }
 

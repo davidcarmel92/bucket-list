@@ -1,5 +1,4 @@
-import { ADD_PIN, GET_PINS, UPDATE_PIN, DELETE_PIN, PIN_LOADING, GET_PIN, EDIT_COMMENT, EDIT_PIN_TEXT } from '../actions/types';
-import _ from 'lodash';
+import { GET_PINS, UPDATE_PIN, DELETE_PIN, PIN_LOADING, GET_PIN, EDIT_COMMENT, EDIT_PIN_TEXT } from '../actions/types';
 
 const initialState = {
   pins: [],
@@ -28,14 +27,6 @@ export default function(state = initialState, action) {
       };
     case UPDATE_PIN:
       const filterPins = state.pins.filter(pin => action.payload.data._id !== pin._id);
-
-      let pin;
-      if(action.payload.update === 'description' || action.payload.update === 'rating') {
-        pin = action.payload.data
-      }
-      else {
-        pin = {}
-      }
 
       return {
         ...state,

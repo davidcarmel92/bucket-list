@@ -49,17 +49,6 @@ class Bio extends Component {
     const { profile } = this.props.profile;
     const { user } = this.props.auth;
 
-    if(profile && profile.favorites){
-      var profileFavorites = profile.favorites.map((item,index) =>
-        <li
-          key={index}
-          className="list-group-item font-text-white"
-        >
-          {item}
-        </li>
-      )
-    }
-
     return (
       <div>
         <div className="lead text-muted">

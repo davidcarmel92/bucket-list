@@ -83,7 +83,7 @@ class EditPin extends Component {
   render() {
 
     const { editComment, errors, rating } = this.state;
-    const { commentId, pin, auth } = this.props;
+    const { pin, auth } = this.props;
 
     let editPin;
 

@@ -10,16 +10,7 @@ class ImageGallery extends Component {
     this.props.getPin(this.props.match.params.pin_id)
   }
 
-  arrayBufferToBase64 = (buffer) => {
-    let binary = '';
-    const bytes = [].slice.call(new Uint8Array(buffer));
-    bytes.forEach((b) => binary += String.fromCharCode(b));
-    return window.btoa(binary);
-  };
-
   render() {
-
-    const { pin } = this.props;
 
     return (
       <div className="container">

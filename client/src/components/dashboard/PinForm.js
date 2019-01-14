@@ -129,7 +129,7 @@ class PinForm extends Component {
                   error={errors.status}
                 />
               </div>
-              {this.state.status == 'done' ? (
+              {this.state.status === 'done' ? (
                 <div>
                   <span className="mr-1">{`You've finished it! Now give it a rating!`}</span>
                   <StarRatings

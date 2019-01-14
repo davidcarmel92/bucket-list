@@ -6,7 +6,6 @@ import { addPin, getPinsByProfile, getPinsByUser, updatePin, deletePin } from '.
 import { getProfileById, getProfileByUser } from '../../actions/profileActions';
 import { setUserId } from '../../actions/authActions';
 import Spinner from '../common/Spinner'
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import BucketGroup from './BucketGroup';
 import Bio from './Bio';
 

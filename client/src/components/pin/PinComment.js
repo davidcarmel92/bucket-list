@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
 import Moment from 'react-moment';
-import { deleteComment, editComment } from '../../actions/pinActions';
+import { deleteComment } from '../../actions/pinActions';
 import EditComment from './EditComment'
 
 class PinComment extends Component {
@@ -11,7 +10,7 @@ class PinComment extends Component {
 
   render() {
 
-    const { pinId, comment, showActions, pin, auth } = this.props;
+    const { comment, pin, auth } = this.props;
 
     return (
       <div className="card mb-3">

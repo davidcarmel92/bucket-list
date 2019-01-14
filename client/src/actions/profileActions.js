@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE, GET_ERRORS, SET_CURRENT_USER, CLEAR_ERRORS, ADD_BIO, GET_PROFILES } from './types';
+import { GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE, GET_ERRORS, SET_CURRENT_USER, CLEAR_ERRORS, GET_PROFILES } from './types';
 
 export const getCurrentProfile = (history) => dispatch => {
   axios.get('/api/profile')

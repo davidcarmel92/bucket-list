@@ -11,7 +11,7 @@ This app was built with Node.Js, Express, React, Redux, MongoDB, Mongoose, and B
 
 You can visit the source code for this project on Github [here](https://github.com/davidcarmel92/bucket-list).
 
-You can visit the working site hosted by Heroku [here](https://bucket-list-mern.herokuapp.com).
+You can visit the working site hosted by Heroku [here](https://bucket-list-mern.herokuapp.com). App will take about 10 seconds to log in due to using free Heroku account. Use guest account listed below to log in without having to register.
 
 ## Use the app
 

@@ -5,7 +5,6 @@ export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_LOADING = 'PROFILE_LOADING';
 export const PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND';
 export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
-export const ADD_BIO = 'ADD_BIO';
 export const GET_PINS = 'GET_PINS';
 export const UPDATE_PIN = 'UPDATE_PIN';
 export const DELETE_PIN = 'DELETE_PIN';

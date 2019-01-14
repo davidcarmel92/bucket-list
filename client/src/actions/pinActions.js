@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_PINS, GET_ERRORS, CLEAR_ERRORS, PIN_LOADING, UPDATE_PIN , DELETE_PIN, GET_PIN, EDIT_COMMENT, EDIT_PIN_TEXT } from './types';
+import { GET_PINS, GET_ERRORS, CLEAR_ERRORS, PIN_LOADING, UPDATE_PIN , DELETE_PIN, GET_PIN, EDIT_COMMENT } from './types';
 
 export const addPin = (pinData, history) => dispatch => {
   dispatch(clearErrors());
