@@ -32,24 +32,24 @@ class SearchBar extends Component {
     const { auth } = this.props;
 
     let links;
-    
-    searchResults.length > 0 ?
-      links = searchResults.map((result,index) => (
-        <li className="list-group-item" key={index}>
-          {result.user === auth.user.id ?
-            <Link className="search-results-item-link" to={`/dashboard`}>
-              {result.name}
-            </Link>
-           :
-            <Link className="search-results-item-link" to={`/dashboard/${result._id}`}>
-              <div className="d-flex">
-                <span>{result.name}</span>
-              </div>
-            </Link>
-          }
-        </li>
-      ))
-    :  links = null;
+
+     searchResults.length > 0 ?
+       links = searchResults.map((result,index) => (
+         <li className="list-group-item" key={index}>
+           {result.user === auth.user.id ?
+             <Link className="search-results-item-link" to={`/dashboard`}>
+               {result.name}
+             </Link>
+            :
+             <Link className="search-results-item-link" to={`/dashboard/${result._id}`}>
+               <div className="d-flex">
+                 <span>{result.name}</span>
+               </div>
+             </Link>
+           }
+         </li>
+       ))
+     :  links = null;
 
     return (
       <span className="navbar-nav ml-auto">

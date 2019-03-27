@@ -31,8 +31,7 @@ const PinSchema = new Schema({
     default: 'todo'
   },
   img: {
-    data: Buffer,
-    contentType: String
+    data: Buffer
   },
   likes: [
     {

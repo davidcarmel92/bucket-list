@@ -13,18 +13,6 @@ const app = express();
 const path = require("path");
 const multer = require("multer");
 
-const storage = multer.diskStorage({
-   destination: "./public/uploads/",
-   filename: function(req, file, cb){
-      cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
-   }
-});
-
-const upload = multer({
-   storage: storage
-}).single("myImage");
-
-
 const User = require('../../models/User');
 
 // @route  GET api/pins/profile/profile_id
@@ -90,30 +78,6 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req,res) => 
   newPin.save().then(pin => res.json(pin))
 });
 
-
-router.post('/photo', upload, passport.authenticate('jwt', { session: false }), (req,res) => {
-
-  // const { errors, isValid } = validatePinInput(req.body);
-  //
-  // if(!isValid) {
-  //   return res.status(400).json(errors)
-  // }
-
-  console.log(req.file)
-
-  const newPin = new Pin({
-    title: 'oh',
-    description: 'oh',
-    status: 'todo',
-    img: {data: fs.readFileSync(req.file.path), contentType: 'image/png'},
-    user: req.user.id
-  })
-
-
-  newPin.save().then(pin => res.json(pin))
-});
-
-
 // @route  POST api/pins/update/:pin_id
 // @desc   Update post
 // @access Private
@@ -143,6 +107,47 @@ router.post('/update/:pin_id', passport.authenticate('jwt', { session: false }),
       }
     })
     .catch(err => res.status(404).json({nopinfound: 'No pin found with that id.'}))
+
+});
+
+
+const upload = multer({
+   limits: {
+     fileSize: 5000000
+   },
+   fileFilter(req, file, cb){
+     if(!(file.originalname.endsWith('.png') || file.originalname.endsWith('.jpg') || file.originalname.endsWith('.jpeg'))){
+       return cb(new Error('Please upload a png or jpg image.'));
+     }
+     cb(undefined, true);
+   }
+})
+
+// @route  POST api/pins/update/photo/:pin_id
+// @desc   Update post
+// @access Private
+router.post('/update/photo/:pin_id', upload.single('profile'), passport.authenticate('jwt', { session: false }), async (req,res) => {
+
+  const user_id = req.user.id;
+  const pin_id = req.params.pin_id;
+
+  var update = {}
+  update['img'] = req.file.buffer;
+
+  try {
+    const pin = await Pin.findById(pin_id);
+    if(pin.user == user_id){
+      console.log(update)
+      const updatedPin = await Pin.findByIdAndUpdate(pin_id, { $set: update }, { new: true })
+      res.json(updatedPin);
+    }
+    else {
+      throw err
+    }
+  }
+  catch(e) {
+    res.status(404).json({nopinsfound: 'No pins found.'})
+  }
 
 });
 
